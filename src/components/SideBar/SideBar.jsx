@@ -5,12 +5,12 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = (theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    height: "100vh",
+    height: "95vh",
   },
   tabs: {
     width: "100%",
     display: "flex",
-    height: "90vh",
+    height: "85vh",
   },
   buttonContainer: {
     height: "10vh",
@@ -26,7 +26,13 @@ const SideBarBase = (props) => {
   }
 
   return (
-    <Grid container direction="column" spacing={0} className={classes?.root}>
+    <Grid
+      container
+      direction="column"
+      spacing={0}
+      noWrap
+      className={classes?.root}
+    >
       <Grid item>
         <Tabs
           fullWidth
