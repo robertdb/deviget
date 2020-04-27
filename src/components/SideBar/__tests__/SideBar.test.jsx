@@ -4,7 +4,7 @@ import { SideBarBase } from "../SideBar";
 
 describe("Side bar", () => {
   it("renders without crashing", () => {
-    const wrapper = shallow(<SideBarBase classes={{}} />);
+    const wrapper = shallow(<SideBarBase classes={{}} posts={[]} />);
 
     expect(wrapper.exists()).toBe(true);
   });

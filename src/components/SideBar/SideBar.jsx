@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
 import { Tabs, Typography, Grid, Button } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import { actions, selectors } from "../../ducks/post";
 
 const styles = (theme) => ({
   root: {
@@ -18,10 +21,15 @@ const styles = (theme) => ({
 });
 
 const SideBarBase = (props) => {
-  const { classes } = props;
-  let texts = [];
+  useEffect(() => {
+    const { getPosts } = props;
+    getPosts();
+  }, []);
 
-  for (let index = 0; index < 100; index++) {
+  const { classes, posts } = props;
+
+  let texts = [];
+  for (let index = 0; index < posts.length; index++) {
     texts.push(<Typography>{`I am a sidebar ${index}`}</Typography>);
   }
 
@@ -47,12 +55,27 @@ const SideBarBase = (props) => {
         </Tabs>
       </Grid>
       <Grid item className={classes?.buttonContainer}>
-        <Button fullWidth>Default</Button>
+        <Button fullWidth={true}>Default</Button>
       </Grid>
     </Grid>
   );
 };
 
-const SideBar = withStyles(styles)(SideBarBase);
+const mapStateToProps = (state) => {
+  return {
+    posts: selectors.getPost(state),
+  };
+};
 
-export { SideBar, SideBarBase };
+const mapDispatchToProps = (dispatch) => ({
+  getPosts: () => dispatch(actions.getPosts()),
+});
+
+const enhance = compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withStyles(styles)
+);
+
+const SideBar = enhance(SideBarBase);
+
+export { SideBarBase, SideBar };
