@@ -13,3 +13,5 @@ export const SET_POSTS = `${feature} SET_POSTS`;
 export const DELETE_POST = `${feature} DELETE_POST`;
 export const SET_CURRENT_POST = `${feature} SET_CURRENT_POST`;
 export const SET_LOADER = `${feature} SET_LOADER`;
+export const DELETE_ALL_POST = `${feature} DELETE_ALL_POST`;
+export const SET_VISITED = `${feature} SET_VISITED`;

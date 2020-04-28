@@ -1,6 +1,7 @@
 import React from "react";
-import { Typography, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import { DetailCardPost } from "../DetailCard";
 
 const styles = ({ palette }) => ({
   root: {
@@ -16,8 +17,8 @@ const RightSideBase = (props) => {
   const { classes } = props;
 
   return (
-    <Grid container direction="column" className={classes?.root}>
-      <Typography className={classes?.textColor}>Right Side</Typography>
+    <Grid container className={classes?.root}>
+      <DetailCardPost />
     </Grid>
   );
 };

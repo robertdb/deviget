@@ -19,6 +19,7 @@ export const parseData = (data) => {
       thumbnail,
       title,
       time: moment.unix(created_utc).local().startOf("minute").fromNow(),
+      visited: false,
     };
   });
 };

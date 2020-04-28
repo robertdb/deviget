@@ -75,6 +75,7 @@ function* getPost() {
 
   // TODO: check expires
   let token = localStorage.getItem("access_token");
+  token = false;
 
   if (!token) {
     const {

@@ -26,12 +26,21 @@ export const deletePost = ({ id }) => ({
   payload: { id },
 });
 
-export const setCurretPost = ({ post }) => ({
+export const deleteAllPost = () => ({
+  type: actionTypes.DELETE_ALL_POST,
+});
+
+export const setCurretPost = ({ id }) => ({
   type: actionTypes.SET_CURRENT_POST,
-  payload: { post },
+  payload: { id },
 });
 
 export const setLoader = ({ loading }) => ({
   type: actionTypes.SET_LOADER,
   payload: { loading },
+});
+
+export const setVisited = ({ id }) => ({
+  type: actionTypes.SET_VISITED,
+  payload: { id },
 });
