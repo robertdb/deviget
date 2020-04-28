@@ -8,4 +8,6 @@ describe("Side bar", () => {
 
     expect(wrapper.exists()).toBe(true);
   });
+  //TODO: find childrens
+  //TODO: mock useffect and check if getPosts is having call
 });

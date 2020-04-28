@@ -3,6 +3,7 @@ import createSagaMiddleware from "redux-saga";
 import { all, fork } from "redux-saga/effects";
 import * as postDuck from "./post";
 
+// TODO: Test all duck
 function* rootSaga() {
   yield all([yield fork(postDuck.sagas)]);
 }

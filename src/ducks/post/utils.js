@@ -1,7 +1,6 @@
 import moment from "moment";
 
 export const parseData = (data) => {
-  console.log(data);
   return data.map((item) => {
     const {
       author,

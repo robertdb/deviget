@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { compose } from "redux";
 import {
@@ -17,7 +17,6 @@ import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
-
 import { actions } from "../../ducks/post";
 import { styles } from "./styles";
 
@@ -60,8 +59,8 @@ const CardBase = (props) => {
   const showMore =
     width === "xs" || width === "sm" ? (
       <IconButton
-        className={clsx(classes.expand, {
-          [classes.expandOpen]: expanded,
+        className={clsx(classes?.expand, {
+          [classes?.expandOpen]: expanded,
         })}
         onClick={handleExpandClick}
         aria-expanded={expanded}
@@ -77,13 +76,13 @@ const CardBase = (props) => {
 
   return (
     <Grow in>
-      <Card className={classes.root} key={key}>
-        <div className={classes.details}>
-          <div className={classes.wrapper}>
+      <Card className={classes?.root} key={key}>
+        <div className={classes?.details}>
+          <div className={classes?.wrapper}>
             <FiberManualRecordIcon
-              className={visited ? {} : classes.unvisited}
+              className={visited ? {} : classes?.unvisited}
             />
-            <div className={classes.title}>
+            <div className={classes?.title}>
               <Typography variant="body1" noWrap>
                 {author}
               </Typography>
@@ -92,19 +91,17 @@ const CardBase = (props) => {
               {time}
             </Typography>
           </div>
-          <div className={classes.media}>
+          <div className={classes?.media}>
             <CardMedia
-              className={classes.cover}
+              className={classes?.cover}
               image={thumbnail}
               title={title}
             />
-            <div className={classes.description}>
-              <Typography variant="paragraph" noWrap display="inline-block">
-                {title}
-              </Typography>
+            <div className={classes?.description}>
+              <Typography noWrap>{title}</Typography>
             </div>
           </div>
-          <div className={classes.wrapper}>
+          <div className={classes?.wrapper}>
             <Button
               variant="contained"
               color="secondary"
@@ -120,11 +117,11 @@ const CardBase = (props) => {
           </div>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>Here we can show more content!</Typography>
+              <Typography>Here we can show more content!</Typography>
             </CardContent>
           </Collapse>
         </div>
-        <div className={classes.more}>{showMore}</div>
+        <div className={classes?.more}>{showMore}</div>
       </Card>
     </Grow>
   );
@@ -144,4 +141,4 @@ const enhance = compose(
 
 const CardPost = enhance(CardBase);
 
-export { CardPost };
+export { CardPost, CardBase };

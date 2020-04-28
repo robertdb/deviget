@@ -1,12 +1,13 @@
 import { shallow } from "enzyme";
 import React from "react";
-import { RightSideBase } from "../RightSide";
+import { CardBase } from "../Card";
 
-describe("Right Side ", () => {
+describe("Card", () => {
   it("renders without crashing", () => {
-    const wrapper = shallow(<RightSideBase classes={{}} />);
+    const wrapper = shallow(<CardBase classes={{}} />);
 
     expect(wrapper.exists()).toBe(true);
   });
+  //TODO: tests actions and handle functions
   //TODO: find childrens
 });

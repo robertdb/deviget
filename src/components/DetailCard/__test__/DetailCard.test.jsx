@@ -1,10 +1,10 @@
 import { shallow } from "enzyme";
 import React from "react";
-import { RightSideBase } from "../RightSide";
+import { DetailCardBase } from "../DetailCard";
 
-describe("Right Side ", () => {
+describe("Detail Card", () => {
   it("renders without crashing", () => {
-    const wrapper = shallow(<RightSideBase classes={{}} />);
+    const wrapper = shallow(<DetailCardBase classes={{}} />);
 
     expect(wrapper.exists()).toBe(true);
   });

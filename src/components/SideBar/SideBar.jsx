@@ -55,8 +55,6 @@ const SideBarBase = (props) => {
           fullWidth
           orientation="vertical"
           variant="scrollable"
-          value={""}
-          onChange={() => {}}
           aria-label="Vertical tabs example"
           className={classes.tabs}
           spacing={2}

@@ -8,20 +8,21 @@ import { styles } from "./styles";
 
 const DetailCardBase = (props) => {
   const { post, classes } = props;
+  // TODO: should be nice handle this null outside, this is not component's responsability
   if (!post) return null;
 
   const { author, thumbnail, title } = post;
 
   return (
-    <div className={classes.root}>
-      <div className={classes.wrapper}>
-        <Typography variant="body1" noWrap className={classes.textColor}>
+    <div className={classes?.root}>
+      <div className={classes?.wrapper}>
+        <Typography variant="body1" noWrap className={classes?.textColor}>
           {author}
         </Typography>
       </div>
-      <CardMedia className={classes.cover} image={thumbnail} title={title} />
-      <div className={classes.wrapper}>
-        <Typography variant="paragraph" noWrap className={classes.textColor}>
+      <CardMedia className={classes?.cover} image={thumbnail} title={title} />
+      <div className={classes?.wrapper}>
+        <Typography noWrap className={classes?.textColor}>
           {title}
         </Typography>
       </div>
@@ -39,4 +40,4 @@ const enhance = compose(connect(mapStateToProps, null), withStyles(styles));
 
 const DetailCardPost = enhance(DetailCardBase);
 
-export { DetailCardPost };
+export { DetailCardPost, DetailCardBase };
