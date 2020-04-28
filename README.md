@@ -1,3 +1,21 @@
+
+## Test
+
+Stack: ducks, redux, redux-saga, reselect, material-ui & axios, 
+
+## NOTES: 
+
+I try to have a solid architecture, that the code can improve in the future, without having to break things. I lacked animations and possibly adjust some text but given the time spent I think it serves as a base and can scale. I wasted time getting the reddit api to work and I had to speed up other features like the design of the card.
+
+
+In the code I was marking things that can be improved and new features that should be done.
+
+
+## url: [deviget-robertdiazbejar](deviget-robertdiazbejar.netlify.app) to view it in the browser.
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
