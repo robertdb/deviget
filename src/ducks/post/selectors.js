@@ -8,3 +8,5 @@ export const getDetailPost = createSelector(
   [getReducer],
   ({ selected }) => selected
 );
+
+export const isLoading = createSelector([getReducer], ({ loading }) => loading);

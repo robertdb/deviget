@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { Tabs, Grid, Button } from "@material-ui/core";
+import { Tabs, Grid, Button, Box } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { actions, selectors } from "../../ducks/post";
 import { CardPost as Card } from "../Card";
 
@@ -31,9 +32,15 @@ const SideBarBase = (props) => {
     deleteAll();
   };
 
-  const { classes, posts } = props;
+  const { classes, posts, isLoading } = props;
 
-  let listCards = posts.map((post, index) => <Card {...post} key={index} />);
+  let component = isLoading ? (
+    <Box align="center" p={2}>
+      <CircularProgress color="secondary" />
+    </Box>
+  ) : (
+    posts.map((post, index) => <Card {...post} key={index} />)
+  );
 
   return (
     <Grid
@@ -54,7 +61,7 @@ const SideBarBase = (props) => {
           className={classes.tabs}
           spacing={2}
         >
-          {listCards}
+          {component}
         </Tabs>
       </Grid>
       <Grid item className={classes?.buttonContainer}>
@@ -69,6 +76,7 @@ const SideBarBase = (props) => {
 const mapStateToProps = (state) => {
   return {
     posts: selectors.getPost(state),
+    isLoading: selectors.isLoading(state),
   };
 };
 
