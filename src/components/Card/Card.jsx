@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { compose } from "redux";
 import {
@@ -10,6 +10,7 @@ import {
   Collapse,
   Typography,
   IconButton,
+  Grow,
 } from "@material-ui/core";
 import { connect } from "react-redux";
 import clsx from "clsx";
@@ -75,53 +76,57 @@ const CardBase = (props) => {
     );
 
   return (
-    <Card className={classes.root} key={key}>
-      <div className={classes.details}>
-        <div className={classes.wrapper}>
-          <FiberManualRecordIcon className={visited ? {} : classes.unvisited} />
-          <div className={classes.title}>
-            <Typography variant="body1" noWrap>
-              {author}
+    <Grow in>
+      <Card className={classes.root} key={key}>
+        <div className={classes.details}>
+          <div className={classes.wrapper}>
+            <FiberManualRecordIcon
+              className={visited ? {} : classes.unvisited}
+            />
+            <div className={classes.title}>
+              <Typography variant="body1" noWrap>
+                {author}
+              </Typography>
+            </div>
+            <Typography variant="subtitle1" color="textSecondary">
+              {time}
             </Typography>
           </div>
-          <Typography variant="subtitle1" color="textSecondary">
-            {time}
-          </Typography>
-        </div>
-        <div className={classes.media}>
-          <CardMedia
-            className={classes.cover}
-            image={thumbnail}
-            title={title}
-          />
-          <div className={classes.description}>
-            <Typography variant="paragraph" noWrap display="inline-block">
-              {title}
+          <div className={classes.media}>
+            <CardMedia
+              className={classes.cover}
+              image={thumbnail}
+              title={title}
+            />
+            <div className={classes.description}>
+              <Typography variant="paragraph" noWrap display="inline-block">
+                {title}
+              </Typography>
+            </div>
+          </div>
+          <div className={classes.wrapper}>
+            <Button
+              variant="contained"
+              color="secondary"
+              disableElevation
+              size="small"
+              onClick={handleDelete}
+            >
+              Dismiss Post
+            </Button>
+            <Typography variant="subtitle1" color="secondary">
+              {comments}
             </Typography>
           </div>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <Typography paragraph>Here we can show more content!</Typography>
+            </CardContent>
+          </Collapse>
         </div>
-        <div className={classes.wrapper}>
-          <Button
-            variant="contained"
-            color="secondary"
-            disableElevation
-            size="small"
-            onClick={handleDelete}
-          >
-            Dismiss Post
-          </Button>
-          <Typography variant="subtitle1" color="secondary">
-            {comments}
-          </Typography>
-        </div>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Here we can show more content!</Typography>
-          </CardContent>
-        </Collapse>
-      </div>
-      <div className={classes.more}>{showMore}</div>
-    </Card>
+        <div className={classes.more}>{showMore}</div>
+      </Card>
+    </Grow>
   );
 };
 
