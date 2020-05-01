@@ -11,7 +11,7 @@ I try to have a solid architecture, that the code can improve in the future, wit
 In the code I was marking things that can be improved and new features that should be done.
 
 
-## url: [deviget-robertdiazbejar](deviget-robertdiazbejar.netlify.app) to view it in the browser.
+## url: [deviget-robertdiazbejar](https://deviget-robertdiazbejar.netlify.app/) to view it in the browser.
 
 
 
